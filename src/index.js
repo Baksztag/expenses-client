@@ -8,6 +8,7 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 import ExpensesIndex from './components/expenses_index';
 import ExpensesNew from './components/expenses_new';
+import ExpensesShow from './components/expenses_show';
 // import App from './components/App';
 // import registerServiceWorker from './registerServiceWorker';
 import './style/index.css';
@@ -20,6 +21,7 @@ ReactDOM.render(
             <div>
                 <Switch>
                     <Route path='/expenses/new' component={ExpensesNew}/>
+                    <Route path='/expenses/:id' component={ExpensesShow}/>
                     <Route path='/' component={ExpensesIndex}/>
                 </Switch>
             </div>

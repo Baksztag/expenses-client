@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export const FETCH_EXPENSES = 'fetch_expenses';
 export const CREATE_EXPENSE = 'create_expense';
+export const FETCH_EXPENSE = 'fetch_expense';
 
 const API_URL = 'http://127.0.0.1:3001/v1';
 
@@ -23,6 +24,15 @@ export function createExpense(values, callback) {
 
     return {
         type: CREATE_EXPENSE,
+        payload: request
+    }
+}
+
+export function fetchExpense(id) {
+    const request = axios.get(`${API_URL}/expenses/${id}`);
+
+    return {
+        type: FETCH_EXPENSE,
         payload: request
     }
 }
