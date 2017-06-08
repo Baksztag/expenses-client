@@ -2,6 +2,7 @@
   "name": "expenses-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Baksztag.github.io/expenses-client",
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
@@ -15,12 +16,14 @@
     "redux-promise": "^0.5.3"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build&&gh-pages -d build"
   }
 }
