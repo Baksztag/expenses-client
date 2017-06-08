@@ -25,11 +25,12 @@ class ExpensesIndex extends Component {
     render() {
         return (
             <div>
-                <div className="text-xs-right">
+                <div className="pull-xs-right">
                     <Link to="/expenses/new" className="btn btn-primary">
                         Add expense
                     </Link>
                 </div>
+                <h1>Sum of expenses: <span className="label label-info">{this.props.sum}</span></h1>
                 <ul className="list-group">
                     {this.renderExpenses()}
                 </ul>
@@ -39,8 +40,12 @@ class ExpensesIndex extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state.expenses);
-    return {expenses: state.expenses};
+    return {
+        expenses: state.expenses,
+        sum: _.reduce(state.expenses, function (sum, n) {
+            return sum + parseFloat(n.value);
+        }, 0)
+    };
 }
 
 export default connect(mapStateToProps, { fetchExpenses })(ExpensesIndex);
