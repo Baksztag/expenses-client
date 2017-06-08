@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import promise from 'redux-promise';
 
 import reducers from './reducers';
-import App from './components/App';
+import ExpensesIndex from './components/expenses_index';
+// import App from './components/App';
 // import registerServiceWorker from './registerServiceWorker';
 import './style/index.css';
 
@@ -17,7 +18,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Switch>
-                    <Route path='/' component={App}/>
+                    <Route path='/' component={ExpensesIndex}/>
                 </Switch>
             </div>
         </BrowserRouter>
