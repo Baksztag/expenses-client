@@ -13,7 +13,7 @@ class ExpensesNew extends Component {
         return (
             <div>
                 <label>{field.label}</label>
-                <input type="text" {...field.input} />
+                <input className="form-control" type="text" {...field.input} />
                 <div className="text-help">
                     {touched ? field.meta.error : ""}
                 </div>
