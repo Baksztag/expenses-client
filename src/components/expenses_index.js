@@ -16,7 +16,7 @@ class ExpensesIndex extends Component {
         return _.map(this.props.expenses, expense => {
             return (
                 <li className="list-group-item" key={expense._id}>
-                    Expense {expense._id}
+                    Expense {expense.title}
                 </li>
             )
         })

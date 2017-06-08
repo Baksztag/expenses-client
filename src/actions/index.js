@@ -4,6 +4,7 @@
 import axios from 'axios';
 
 export const FETCH_EXPENSES = 'fetch_expenses';
+export const CREATE_EXPENSE = 'create_expense';
 
 const API_URL = 'http://127.0.0.1:3001/v1';
 
@@ -12,6 +13,16 @@ export function fetchExpenses() {
 
     return {
         type: FETCH_EXPENSES,
+        payload: request
+    }
+}
+
+export function createExpense(values, callback) {
+    const request = axios.post(`${API_URL}/expenses`, values)
+        .then(() => callback());
+
+    return {
+        type: CREATE_EXPENSE,
         payload: request
     }
 }
