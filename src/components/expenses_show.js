@@ -26,12 +26,12 @@ class ExpensesShow extends Component {
         return (
             expense ?
                 <div>
-                    <Link to="/" className="btn btn-primary">Back to posts</Link>
+                    <Link to="/" className="btn btn-primary">Back to expenses</Link>
                     <button
                         className="btn btn-danger pull-xs-right"
                         onClick={this.onDeleteClick.bind(this)}
                     >
-                        Delete Post
+                        Delete Expense
                     </button>
                     <h2>{expense.title}</h2>
                     <h3>Description: {expense.description}</h3>
