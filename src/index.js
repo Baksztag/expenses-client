@@ -7,6 +7,7 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 import ExpensesIndex from './components/expenses_index';
+import ExpensesNew from './components/expenses_new';
 // import App from './components/App';
 // import registerServiceWorker from './registerServiceWorker';
 import './style/index.css';
@@ -18,6 +19,7 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <Switch>
+                    <Route path='/expenses/new' component={ExpensesNew}/>
                     <Route path='/' component={ExpensesIndex}/>
                 </Switch>
             </div>

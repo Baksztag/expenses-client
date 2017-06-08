@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchExpenses } from '../actions';
 import _ from 'lodash';
 
@@ -24,7 +25,11 @@ class ExpensesIndex extends Component {
     render() {
         return (
             <div>
-                Expenses Index
+                <div className="text-xs-right">
+                    <Link to="/expenses/new" className="btn btn-primary">
+                        Add expense
+                    </Link>
+                </div>
                 <ul className="list-group">
                     {this.renderExpenses()}
                 </ul>
