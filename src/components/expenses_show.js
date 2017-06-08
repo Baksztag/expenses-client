@@ -3,13 +3,20 @@
  */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchExpense } from '../actions';
+import { fetchExpense, deleteExpense } from '../actions';
 import { Link } from 'react-router-dom';
 
 class ExpensesShow extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
         this.props.fetchExpense(id);
+    }
+
+    onDeleteClick() {
+        const { id } = this.props.match.params;
+        this.props.deleteExpense(id, () => {
+            this.props.history.push('/');
+        })
     }
 
     render() {
@@ -20,9 +27,15 @@ class ExpensesShow extends Component {
             expense ?
                 <div>
                     <Link to="/" className="btn btn-primary">Back to posts</Link>
-                    <h3>{expense.title}</h3>
-                    <h6>Description: {expense.description}</h6>
-                    <p>Value: {expense.value}</p>
+                    <button
+                        className="btn btn-danger pull-xs-right"
+                        onClick={this.onDeleteClick.bind(this)}
+                    >
+                        Delete Post
+                    </button>
+                    <h2>{expense.title}</h2>
+                    <h3>Description: {expense.description}</h3>
+                    <h3>Value: {expense.value}</h3>
                 </div>
                 : <div>Loading...</div>
         )
@@ -33,5 +46,5 @@ function mapStateToProps({ expenses }, ownProps) {
     return {expense: expenses[ownProps.match.params.id]}
 }
 
-export default connect(mapStateToProps, { fetchExpense })(ExpensesShow);
+export default connect(mapStateToProps, { fetchExpense, deleteExpense })(ExpensesShow);
 

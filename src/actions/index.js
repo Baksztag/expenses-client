@@ -6,6 +6,7 @@ import axios from 'axios';
 export const FETCH_EXPENSES = 'fetch_expenses';
 export const CREATE_EXPENSE = 'create_expense';
 export const FETCH_EXPENSE = 'fetch_expense';
+export const DELETE_EXPENSE = 'delete_expense';
 
 const API_URL = 'https://tranquil-escarpment-77670.herokuapp.com/v1';
 
@@ -34,5 +35,15 @@ export function fetchExpense(id) {
     return {
         type: FETCH_EXPENSE,
         payload: request
+    }
+}
+
+export function deleteExpense(id, callback) {
+    const request = axios.delete(`${API_URL}/expenses/${id}`)
+        .then(() => callback());
+
+    return {
+        type: DELETE_EXPENSE,
+        payload: id
     }
 }
