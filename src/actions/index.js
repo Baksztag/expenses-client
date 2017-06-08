@@ -7,7 +7,7 @@ export const FETCH_EXPENSES = 'fetch_expenses';
 export const CREATE_EXPENSE = 'create_expense';
 export const FETCH_EXPENSE = 'fetch_expense';
 
-const API_URL = 'http://127.0.0.1:3001/v1';
+const API_URL = 'https://tranquil-escarpment-77670.herokuapp.com';
 
 export function fetchExpenses() {
     const request = axios.get(`${API_URL}/expenses`);
