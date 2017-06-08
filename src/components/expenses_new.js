@@ -65,6 +65,9 @@ function validate(values) {
     if (!values.value) {
         errors.value = "Enter value";
     }
+    if (isNaN(parseFloat(values.value))) {
+        errors.value = "Value must be a number"
+    }
 
     return errors;
 }
